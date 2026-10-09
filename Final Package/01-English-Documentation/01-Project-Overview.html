@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bayt Elkaram — Project Overview and Handover Status</title><style>
+@font-face{font-family:Offset;src:url('../03-Visual-Assets/Fonts/Offset%20TM/OffsetTM.woff2') format('woff2');font-display:swap}
+:root{--red:#ed2023;--ink:#2b2f36;--line:#e7e0d4}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:#faf7f2;font:16px/1.65 Offset,Arial,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px max(24px,calc((100vw - 980px)/2));position:sticky;top:0}header a{text-decoration:none;color:var(--red);font-weight:900}
+main{max-width:980px;margin:45px auto 80px;padding:0 25px}h1{font-size:42px;line-height:1.08;letter-spacing:-.04em}h2{font-size:29px;margin-top:45px;border-top:3px solid var(--red);padding-top:15px}h3{font-size:22px;margin-top:35px}p{margin:14px 0}a{color:#b71a1e}a:focus-visible{outline:3px solid var(--red)}
+.table-scroll{overflow-x:auto;margin:22px 0}table{border-collapse:collapse;background:#fff;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;border:1px solid var(--line);padding:10px 12px;min-width:75px}th{background:var(--ink);color:#fff}tr:nth-child(even){background:#fcfbf8}
+blockquote{margin:20px 0;padding:14px 18px;border-left:5px solid var(--red);background:#fff}code{font:13px/1.5 Consolas,monospace;background:#f2ebe1;padding:2px 5px;border-radius:3px}pre{overflow:auto;background:var(--ink);color:#fff;padding:18px;border-radius:7px}pre code{background:transparent;color:inherit;padding:0}li{margin:5px 0}hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+@media(max-width:700px){main{margin-top:25px}h1{font-size:31px}h2{font-size:24px}}
+</style></head><body><header><a href="../START_HERE.html">← Bayt Elkaram handover</a></header><main><h1 id="bayt-elkaram-project-overview-and-handover-status">Bayt Elkaram — Project Overview and Handover Status</h1>
+<h2 id="the-product">The product</h2>
+<p>Bayt Elkaram is a planned multi-branch restaurant experience for Syrian and Egyptian cuisine in Greater Cairo. The digital ecosystem has three customer-facing and operational parts:</p>
+<div class="table-scroll"><table><thead><tr><th>Product</th><th>Planned platform</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Customer application</td><td>Flutter for Android and iOS</td><td>Discover branches and dishes, order delivery or pickup, make reservations, track orders, manage loyalty and support.</td></tr>
+<tr><td>Administration dashboard</td><td>Next.js</td><td>Run branches, menus, orders, reservations, staff permissions, campaigns, customers and reports.</td></tr>
+<tr><td>Marketing website</td><td>Next.js proposed</td><td>Introduce the brand, show locations, capture catering enquiries and reservations, and direct visitors to ordering.</td></tr>
+</tbody></table></div>
+<p>The planning documents propose a shared NestJS backend. The backend and all three production applications <strong>have not been implemented in this handover</strong>. The HTML files are editable design artifacts, not deployed applications.</p>
+<h2 id="completed-work">Completed work</h2>
+<ol>
+<li>Product discovery: a sitemap of 56 customer-app screens and states and 39 administration screens and states; 16 customer/operations journeys; and detailed wireframe specifications for 18 flagship screens.</li>
+<li>Visual design: 85 editable artboards in the shared application/dashboard canvas—50 English customer screens, 30 dashboard screens and five Arabic demonstration screens—plus a visual design-system artifact.</li>
+<li>Marketing website: a six-page sitemap, eight visitor journeys, page specifications and six desktop artboards.</li>
+<li>Content and identity: a 52-item bilingual menu with stable SKUs; 66 generated food, branch, hero and social images; logo source files; two supplied display/body font families; and 50 one-timescale mobile screenshots.</li>
+<li>Map visualization: five illustrative Cairo map preview assets were inserted into the relevant artboards. They show the intended appearance of branch selection, address picking, tracking and delivery zones. They are <strong>not live Google Maps data</strong>.</li>
+<li>A proposed one-week development plan exists as planning material. It is not evidence of completed software or a committed public-launch date.</li>
+</ol>
+<h2 id="design-and-discovery-approach">Design and discovery approach</h2>
+<p>The project was structured from sitemap to user journeys, screen specifications and finally the UI system. The first 18 screens established the visual and interaction patterns; remaining screens were then laid out in the canvas. A screenshot is supplied for every English customer-app artboard.</p>
+<p>The supplied visual reference is Roberta's Pizza. The planning notes explicitly call for faithful reuse of its visual language and the website's structure, with Bayt Elkaram content and imagery. This is a disclosed design reference, not a claim that the entire aesthetic was independently invented for this project. The customer app and administration flows extend the reference with ordering and operations components.</p>
+<h2 id="what-this-handover-proves">What this handover proves</h2>
+<p>The package demonstrates product scope, journey design, detailed UI concepts, asset planning, and a coherent cross-product visual system. It does <strong>not</strong> prove deployed software, production integrations, live store listings, usability-study results, payment processing, live rider coordinates, or business performance.</p>
+<h2 id="practical-review-order">Practical review order</h2>
+<ol>
+<li>Open <code>START_HERE.html</code> at the package root for a visual overview and links to every exhibit.</li>
+<li>Read the English documentation in numerical order. The scope and user-journey document makes the large canvas easier to understand.</li>
+<li>Open the three main application/dashboard HTML exports and the website export. The exports are self-contained design canvases; the three main exports contain largely the same artboard library and differ in their initial canvas view and a small number of saved artboard states.</li>
+<li>Use the 50 mobile PNG screenshots for quick slide decks or a portfolio case study. Use the HTML artboards for editable detail and admin/site review.</li>
+<li>Consult <code>04-Original-Planning-Reference</code> only when exact source wording or historical rationale is needed. It preserves the original Arabic planning files.</li>
+</ol>
+<h2 id="material-open-decisions-before-development">Material open decisions before development</h2>
+<ul>
+<li>Verify actual branch names, coordinates, opening hours and delivery-zone geometry; the existing data is presentation content.</li>
+<li>Approve menu prices, recipes, allergen information, tax and delivery fees.</li>
+<li>Select and configure Google Maps, SMS/OTP, push and payment providers; provide the necessary accounts and restricted keys.</li>
+<li>Define fulfillment ownership and a source for live rider location. A rider interface or delivery-system integration is not among the original admin artboards.</li>
+<li>Decide whether the website will support browser ordering. The visitor-flow document describes it as a possible additional design, while the six finished website pages focus on discovery and conversion.</li>
+<li>Review all English/Arabic customer flows. Five Arabic artboards demonstrate direction and localization; they do not constitute a full translated product.</li>
+</ul>
+<h2 id="package-map">Package map</h2>
+<div class="table-scroll"><table><thead><tr><th>Folder</th><th>Content</th></tr></thead><tbody>
+<tr><td><code>01-English-Documentation</code></td><td>Curated English handover documents and content tables.</td></tr>
+<tr><td><code>02-Design-Artifacts</code></td><td>The seven original editable HTML exports.</td></tr>
+<tr><td><code>03-Visual-Assets</code></td><td>Mobile screenshots, generated images, maps, logos, font files and Illustrator source.</td></tr>
+<tr><td><code>04-Original-Planning-Reference</code></td><td>Original detailed planning and design-system files, retained for traceability.</td></tr>
+<tr><td><code>05-Future-Development</code></td><td>A separate English execution plan; not part of completed design work.</td></tr>
+</tbody></table></div></main></body></html>

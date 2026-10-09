@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Proposed Implementation Plan — Not Yet Executed</title><style>
+@font-face{font-family:Offset;src:url('../03-Visual-Assets/Fonts/Offset%20TM/OffsetTM.woff2') format('woff2');font-display:swap}
+:root{--red:#ed2023;--ink:#2b2f36;--line:#e7e0d4}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:#faf7f2;font:16px/1.65 Offset,Arial,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px max(24px,calc((100vw - 980px)/2));position:sticky;top:0}header a{text-decoration:none;color:var(--red);font-weight:900}
+main{max-width:980px;margin:45px auto 80px;padding:0 25px}h1{font-size:42px;line-height:1.08;letter-spacing:-.04em}h2{font-size:29px;margin-top:45px;border-top:3px solid var(--red);padding-top:15px}h3{font-size:22px;margin-top:35px}p{margin:14px 0}a{color:#b71a1e}a:focus-visible{outline:3px solid var(--red)}
+.table-scroll{overflow-x:auto;margin:22px 0}table{border-collapse:collapse;background:#fff;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;border:1px solid var(--line);padding:10px 12px;min-width:75px}th{background:var(--ink);color:#fff}tr:nth-child(even){background:#fcfbf8}
+blockquote{margin:20px 0;padding:14px 18px;border-left:5px solid var(--red);background:#fff}code{font:13px/1.5 Consolas,monospace;background:#f2ebe1;padding:2px 5px;border-radius:3px}pre{overflow:auto;background:var(--ink);color:#fff;padding:18px;border-radius:7px}pre code{background:transparent;color:inherit;padding:0}li{margin:5px 0}hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+@media(max-width:700px){main{margin-top:25px}h1{font-size:31px}h2{font-size:24px}}
+</style></head><body><header><a href="../START_HERE.html">← Bayt Elkaram handover</a></header><main><h1 id="proposed-implementation-plan-not-yet-executed">Proposed Implementation Plan — Not Yet Executed</h1>
+<p>This is an English handover of the proposed development approach. The supplied project currently contains planning, design artboards and assets, <strong>not a coded customer app, dashboard, marketing website or backend</strong>. The owner requested a one-week maximum execution attempt while working alone with AI tools and requiring every advertised function before public launch. Seven days can organize and test an intensive build attempt, but they cannot guarantee a complete, independently reviewed public release.</p>
+<h2 id="delivery-principle">Delivery principle</h2>
+<p>Build <strong>vertical slices</strong>. A story is complete only when its data model, NestJS endpoint, Flutter/Next.js interface, permissions, error states and test all work together on staging. OpenAPI is the shared API contract. No visual-only mock or unconsumed backend endpoint counts as an accepted feature.</p>
+<p>The proposed applications are Flutter mobile, Next.js administration and website, with a NestJS service and PostgreSQL database. These are planned choices from the original overview plus an implementation proposal; no repository scaffold is included in the current handover.</p>
+<h2 id="seven-one-day-sprint-sequence">Seven one-day sprint sequence</h2>
+<div class="table-scroll"><table><thead><tr><th>Day</th><th>Backend/data work</th><th>App, admin and website work</th><th>End-of-day proof</th></tr></thead><tbody>
+<tr><td>1</td><td>Repository structure; database migrations; OpenAPI; seeded, source-labelled branch and menu data; staff access; staging and error logging.</td><td>App/admin/site shells, shared visual tokens, navigation and locale framework.</td><td>Builds deploy automatically; mobile and admin read the same branch API.</td></tr>
+<tr><td>2</td><td>Branches, hours, coverage, catalogue, per-branch prices and availability, search.</td><td>Branch, map, home, menu, item and search screens; admin branch/item editor; website branch data.</td><td>An availability change in admin appears in the customer app.</td></tr>
+<tr><td>3</td><td>Modifiers, cart pricing, address, delivery quote, promotion rules, phone OTP, cash order creation.</td><td>Item customization, cart, address/pickup and checkout; live admin intake.</td><td>A delivery and a pickup order reach the dashboard; repeated submission creates no duplicate.</td></tr>
+<tr><td>4</td><td>Order state transitions, notifications, history, payment gateway sandbox, webhooks and refunds under approved policy.</td><td>Live orders, customer history/status, payment failure recovery and cancellation.</td><td>Cash and electronic sandbox orders complete; cart survives payment failure.</td></tr>
+<tr><td>5</td><td>Reservation capacity, rider assignment/location source, favourites, reorder, loyalty, ratings and support.</td><td>Reservation, tracking, loyalty, support and rider/admin controls.</td><td>Reservation collision prevented; real location source or a clearly limited status-only view.</td></tr>
+<tr><td>6</td><td>Staff roles, audit, CRM, offers/campaigns, reports, settings and content/forms.</td><td>Remaining admin sections, six responsive website pages, forms and full Arabic review.</td><td>Reports reconcile to orders; enquiries reach operations; all visible calls to action have working destinations.</td></tr>
+<tr><td>7</td><td>Feature freeze, backup/restore test, observability, security and production configuration.</td><td>Android/iOS/browser journeys, accessibility, content and store submission preparation.</td><td>Documented GO/NO-GO decision against the acceptance gates below.</td></tr>
+</tbody></table></div>
+<p>Day five and six are likely beyond a single person's capacity even with AI assistance. The order above is a critical-path attempt, not a promise that all features can be delivered in one week.</p>
+<h2 id="external-inputs-required-for-full-functionality">External inputs required for full functionality</h2>
+<p>Verified branch coordinates/hours/delivery areas; approved menu and tax data; reservation, cancellation, refund and loyalty rules; restricted Google Maps keys with billing; OTP/SMS service; payment provider account and test/live credentials; notification setup; rider location source; hosting/domain; and Apple/Google developer accounts. These inputs cannot be inferred from visual designs.</p>
+<p>The website's potential browser checkout is mentioned in a visitor flow but is <strong>not among the six finished web page artboards</strong>. It needs a separate design/build decision before being advertised as live.</p>
+<h2 id="go-no-go-gate-for-public-use">GO/NO-GO gate for public use</h2>
+<ul>
+<li>Every advertised sitemap item and all essential journeys work on staging with authorized data. Shared screen patterns may cover multiple sitemap entries if their behaviors are actually implemented.</li>
+<li>Delivery/pickup and any advertised reservations can be accepted and fulfilled by a real branch; prices, taxes, discounts and refunds are correct; no duplicate charges or orders on retries.</li>
+<li>Maps and rider movement are genuine where shown as live; customers do not see illustrative coordinates as operational truth.</li>
+<li>Staff permissions are branch-scoped; OTP is rate-limited; secrets are protected; sensitive changes have audit events.</li>
+<li>End-to-end flows pass on intended Android/iOS devices and browsers in both advertised languages; load, network failure, backup restore and rollback are exercised.</li>
+<li>Store metadata and distribution requirements are met. Some new personal Google Play accounts require a closed test with 12 testers for 14 continuous days before production access, so public Android-store launch may be impossible within the seven-day window regardless of code completion.</li>
+</ul>
+<p>If a gate fails, the result is a test build or closed beta with a named gap—not a public release advertised as complete.</p>
+<h2 id="reference-links">Reference links</h2>
+<ul>
+<li><a href="https://docs.nestjs.com/openapi/introduction">NestJS OpenAPI</a>, <a href="https://docs.nestjs.com/fundamentals/testing">NestJS testing</a>.</li>
+<li><a href="https://docs.flutter.dev/testing/overview">Flutter testing</a>, <a href="https://docs.flutter.dev/ui/internationalization">Flutter internationalization</a>.</li>
+<li><a href="https://nextjs.org/docs/app/guides/testing">Next.js testing</a>.</li>
+<li><a href="https://developers.google.com/maps/flutter-package/overview">Google Maps for Flutter prerequisites</a>.</li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/14151465?hl=en-GB">Google Play testing requirements for newer personal accounts</a>, <a href="https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview/">Apple TestFlight overview</a>.</li>
+</ul></main></body></html>

@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Flagship Screen Specifications</title><style>
+@font-face{font-family:Offset;src:url('../03-Visual-Assets/Fonts/Offset%20TM/OffsetTM.woff2') format('woff2');font-display:swap}
+:root{--red:#ed2023;--ink:#2b2f36;--line:#e7e0d4}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:#faf7f2;font:16px/1.65 Offset,Arial,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px max(24px,calc((100vw - 980px)/2));position:sticky;top:0}header a{text-decoration:none;color:var(--red);font-weight:900}
+main{max-width:980px;margin:45px auto 80px;padding:0 25px}h1{font-size:42px;line-height:1.08;letter-spacing:-.04em}h2{font-size:29px;margin-top:45px;border-top:3px solid var(--red);padding-top:15px}h3{font-size:22px;margin-top:35px}p{margin:14px 0}a{color:#b71a1e}a:focus-visible{outline:3px solid var(--red)}
+.table-scroll{overflow-x:auto;margin:22px 0}table{border-collapse:collapse;background:#fff;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;border:1px solid var(--line);padding:10px 12px;min-width:75px}th{background:var(--ink);color:#fff}tr:nth-child(even){background:#fcfbf8}
+blockquote{margin:20px 0;padding:14px 18px;border-left:5px solid var(--red);background:#fff}code{font:13px/1.5 Consolas,monospace;background:#f2ebe1;padding:2px 5px;border-radius:3px}pre{overflow:auto;background:var(--ink);color:#fff;padding:18px;border-radius:7px}pre code{background:transparent;color:inherit;padding:0}li{margin:5px 0}hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+@media(max-width:700px){main{margin-top:25px}h1{font-size:31px}h2{font-size:24px}}
+</style></head><body><header><a href="../START_HERE.html">← Bayt Elkaram handover</a></header><main><h1 id="flagship-screen-specifications">Flagship Screen Specifications</h1>
+<p>Eighteen screens established the layout and interaction patterns used across the wider canvas: 12 in the customer application at a 390 × 844 reference viewport and six in the dashboard at 1440 × 900. The finished HTML artboards take precedence over the text-only wireframe diagrams for <strong>direction</strong>: early diagrams were drawn RTL, then corrected to English-first LTR before final UI work.</p>
+<h2 id="customer-application">Customer application</h2>
+<div class="table-scroll"><table><thead><tr><th>Screen</th><th>Main composition</th><th>Interaction, empty state or exception</th></tr></thead><tbody>
+<tr><td>1. Splash</td><td>Centered Bayt Elkaram wordmark on a clean white field, with minimal loading feedback.</td><td>The original spec caps its appearance around 1.5 seconds; connection failure leads to the offline state rather than leaving the user on the splash.</td></tr>
+<tr><td>2. Home</td><td>Active branch and notifications in the header; campaign hero; search; horizontal categories; popular items; reorder card; bottom navigation.</td><td>The active branch stays visible. A first-time customer sees discovery content in place of the reorder block.</td></tr>
+<tr><td>3. Branch Selector</td><td>Compact map, branch cards with distance and opening status, clear select actions.</td><td>Closed branches remain visible but disabled; manual search is available if location access fails. The inserted map is an illustrative preview.</td></tr>
+<tr><td>4. Branch Locator</td><td>Larger map with pins and a draggable branch-list sheet containing image, address, hours and call/directions actions.</td><td>The sheet should expose all branches without losing the map context. The current artboard map is an illustrative preview.</td></tr>
+<tr><td>5. Menu</td><td>Sticky category tabs, photo-led item rows/cards, concise description, price and quick add.</td><td>Simple items can be added quickly; items with required choices open their detail screen. Empty categories suggest another category.</td></tr>
+<tr><td>6. Item Detail</td><td>Large image, name, price, description, options/modifiers, notes and quantity, with a persistent Add to Cart action.</td><td>The displayed total updates with selections. Unavailable modifiers are disabled before checkout.</td></tr>
+<tr><td>7. Cart</td><td>Editable item lines, coupon entry, subtotal, delivery fee, total and a prominent checkout action.</td><td>Editing reopens the item with previous options preserved. An empty cart offers a clear route back to the menu.</td></tr>
+<tr><td>8. Checkout Review</td><td>Delivery/pickup address, timing, payment choice, collapsible order details, final total and confirm action.</td><td>Each key choice can be changed in context without restarting the entire checkout.</td></tr>
+<tr><td>9. Live Tracking</td><td>Route/status map, order-step indicator, ETA, rider contact and help.</td><td>Pickup replaces the rider map with preparation readiness. Live rider movement needs an operational location feed; the current map is a static preview.</td></tr>
+<tr><td>10. Reservation</td><td>Branch, date, time slots, party-size stepper and confirmation.</td><td>Full slots appear disabled; when all slots are full the next available day or branch is suggested.</td></tr>
+<tr><td>11. Profile</td><td>Customer identity and loyalty tier, with shortcuts to addresses, payment methods, rewards, favourites, language and support.</td><td>Loyalty status is immediately visible near the name.</td></tr>
+<tr><td>12. Loyalty</td><td>Prominent red points card, tier progress, redeemable rewards and points history.</td><td>Rules and balances require authoritative backend data during implementation.</td></tr>
+</tbody></table></div>
+<h2 id="administration-dashboard">Administration dashboard</h2>
+<div class="table-scroll"><table><thead><tr><th>Screen</th><th>Main composition</th><th>Interaction, empty state or exception</th></tr></thead><tbody>
+<tr><td>13. Login</td><td>Brand mark, email/password form, reset link and subdued decorative frame.</td><td>Two-factor verification is part of the larger administration scope.</td></tr>
+<tr><td>14. Overview</td><td>Branch filter, revenue/order/average/rating tiles, sales-over-time chart, best sellers and branch comparison.</td><td>The branch filter must change every related metric consistently.</td></tr>
+<tr><td>15. Live Orders</td><td>Status-based Kanban with order summaries, elapsed time and operational alerts.</td><td>Overdue preparation highlights the affected card. Status movement must follow permissions and valid transitions.</td></tr>
+<tr><td>16. Item Editor</td><td>Bilingual names, image, description, category, price, modifiers and availability per branch, with draft/publish controls.</td><td>A draft is hidden from customers. Branch-specific availability is edited directly here.</td></tr>
+<tr><td>17. Branch Management</td><td>Branch list with live/open/maintenance state, order volume, quick status change and drill-down.</td><td>Emergency closing is possible from the list without opening a full edit form.</td></tr>
+<tr><td>18. Sales Reports</td><td>Date and branch selectors, trend and breakdown charts, sortable table and export control.</td><td>Export must match active filters when built.</td></tr>
+</tbody></table></div>
+<h2 id="shared-screen-state-rules">Shared screen-state rules</h2>
+<ul>
+<li>Loading is shown with skeletons that resemble the final layout.</li>
+<li>Network or server failure uses a plain-language message and retry action.</li>
+<li>Empty content includes a small illustration or concise explanation and an action to recover.</li>
+<li>English uses LTR positioning and directional icons; Arabic mirrors directional elements when enabled.</li>
+<li>These specifications are design intent. The accompanying PNGs and artboards show appearance; no functional prototype or deployed backend is included in the handover.</li>
+</ul></main></body></html>

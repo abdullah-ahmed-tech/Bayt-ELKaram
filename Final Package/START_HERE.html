@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bayt Elkaram — Design Handover</title>
+  <style>
+    @font-face{font-family:Offset;src:url('03-Visual-Assets/Fonts/Offset%20TM/OffsetTM.woff2') format('woff2');font-display:swap}
+    :root{--red:#ed2023;--ink:#2b2f36;--cream:#faf7f2;--line:#e5ded3}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--cream);color:var(--ink);font-family:Offset,Arial,sans-serif;line-height:1.5}
+    a{color:inherit} a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+    .wrap{max-width:1220px;padding:0 28px;margin:auto}.topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+    .topbar .wrap{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;color:var(--red);font-size:23px;text-decoration:none;letter-spacing:-.04em}
+    nav{display:flex;gap:20px;flex-wrap:wrap}nav a{text-decoration:none;font-size:13px;font-weight:800}nav a:hover{color:var(--red)}
+    .hero{background:var(--ink);color:#fff;overflow:hidden}.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center;padding-top:64px;padding-bottom:64px}
+    .eyebrow{text-transform:uppercase;letter-spacing:.17em;font-size:11px;font-weight:900;color:var(--red)}.hero .eyebrow{color:#ff7779}
+    h1{font-size:clamp(42px,6vw,82px);line-height:.98;letter-spacing:-.06em;margin:15px 0 26px;max-width:750px}h2{font-size:clamp(27px,3vw,39px);line-height:1.12;letter-spacing:-.04em;margin:10px 0 20px}
+    p{max-width:780px} .hero p{font-size:17px;color:#e6e2db}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .button{display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;border-radius:7px;background:var(--red);color:#fff;text-decoration:none;font-size:13px;font-weight:900;min-height:46px;border:1px solid var(--red)}
+    .button.secondary{background:transparent;border-color:#fff}.button.light{background:#fff;color:var(--ink);border-color:var(--line)}
+    .hero-image{height:480px;display:flex;justify-content:center;align-items:center;position:relative}.hero-image:before{content:"";position:absolute;inset:30px 0;background:#d6c6b0;transform:rotate(-7deg);border-radius:24px}
+    .hero-image img{height:455px;max-width:100%;object-fit:contain;position:relative;border:8px solid #15191f;border-radius:31px;background:#fff;box-shadow:16px 18px 0 rgba(0,0,0,.28)}
+    section{padding:66px 0;border-bottom:1px solid var(--line)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:25px}.section-head p{margin:0;color:#625e59}
+    .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:20px}.stat{background:#fff;border:1px solid var(--line);padding:20px;border-radius:12px}.stat b{display:block;color:var(--red);font-size:30px;line-height:1}.stat span{display:block;margin-top:8px;font-size:12px;font-weight:800}
+    .status{padding:18px 20px;background:#fff;border-left:6px solid var(--red);border-radius:4px;margin-top:24px}.status strong{display:block;margin-bottom:4px}.status p{margin:0;color:#625e59;font-size:14px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:24px;min-height:200px;display:flex;flex-direction:column}.card .tag{color:var(--red);font-size:11px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}.card h3{font-size:22px;line-height:1.18;margin:10px 0}.card p{font-size:13px;color:#625e59;margin:0 0 22px}.card a{margin-top:auto;font-size:13px;font-weight:900;color:var(--red)}
+    .doclist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.doclist a{display:block;background:#fff;border:1px solid var(--line);padding:15px 18px;text-decoration:none;border-radius:8px;font-size:13px;font-weight:800}.doclist a:hover{border-color:var(--red);color:var(--red)}
+    .gallery-tools{display:flex;gap:12px;align-items:center;margin-bottom:20px}.gallery-tools input{padding:12px 15px;border:1px solid var(--line);border-radius:7px;min-width:min(330px,100%);background:#fff;color:var(--ink);font:inherit}
+    .gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.shot{display:block;background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px;text-decoration:none;transition:transform .15s,box-shadow .15s}.shot:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(0,0,0,.11)}
+    .shot img{width:100%;aspect-ratio:390/844;object-fit:contain;background:#fafafa;border-radius:6px}.shot strong{display:block;font-size:12px;margin:9px 2px 2px;overflow-wrap:anywhere}
+    footer{background:var(--ink);color:#fff;padding:40px 0}footer p{font-size:13px;color:#d8d4ce;margin:4px 0}
+    @media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero-image{display:none}.stats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:600px){.wrap{padding:0 18px}.topbar .wrap{padding-top:14px;padding-bottom:14px;align-items:flex-start;flex-direction:column}.hero .wrap{padding-top:45px;padding-bottom:45px}.stats{grid-template-columns:repeat(2,1fr)}.grid,.doclist{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}section{padding:45px 0}}
+  </style>
+</head>
+<body>
+  <header class="topbar"><div class="wrap"><a class="brand" href="#top">Bayt Elkaram</a><nav aria-label="Sections"><a href="#overview">Overview</a><a href="#artifacts">Artifacts</a><a href="#screens">Mobile screens</a><a href="#documents">Documents</a><a href="#assets">Assets</a></nav></div></header>
+  <main id="top">
+    <div class="hero"><div class="wrap"><div><div class="eyebrow">English design handover · October 2026</div><h1>A complete restaurant product, designed across every touchpoint.</h1><p>Explore the customer app, operations dashboard, marketing website, user journeys and brand assets for Bayt Elkaram. This is a design and planning handover; production software has not been built in this package.</p><div class="actions"><a class="button" href="#artifacts">Open the designs</a><a class="button secondary" href="01-English-Documentation/01-Project-Overview.html">Read the overview</a></div></div><div class="hero-image"><img src="03-Visual-Assets/Mobile-Screenshots/Main@1x.png" alt="Bayt Elkaram customer app home screen"></div></div></div>
+    <section id="overview"><div class="wrap"><div class="eyebrow">Project at a glance</div><h2>One brand, three product surfaces.</h2><p>Bayt Elkaram brings Syrian and Egyptian cuisine to a planned multi-branch experience in Greater Cairo. The work covers discovery, ordering, reservation, tracking, loyalty and restaurant operations, with a website for discovery and conversion.</p><div class="stats"><div class="stat"><b>85</b><span>App and admin artboards</span></div><div class="stat"><b>6</b><span>Website page artboards</span></div><div class="stat"><b>24</b><span>Documented user journeys</span></div><div class="stat"><b>52</b><span>Menu items</span></div><div class="stat"><b>66</b><span>Generated images</span></div></div><div class="status"><strong>Delivery status: planning and UI/UX design completed.</strong><p>The exported HTML files are editable design canvases. The Google-style maps are illustrative previews. Flutter, Next.js and NestJS applications, live integrations, stores and production testing are future work.</p></div></div></section>
+    <section id="artifacts"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Editable source</div><h2>Design artifacts</h2></div><p>Open in a browser. These self-contained HTML canvases preserve the source design.</p></div><div class="grid">
+      <article class="card"><span class="tag">Customer application</span><h3>Mobile app</h3><p>The complete English customer design canvas, including ordering, reservation, loyalty and support screens.</p><a href="02-Design-Artifacts/Bayt%20Elkaram%20Mobile%20App.html">Open customer app →</a></article>
+      <article class="card"><span class="tag">Restaurant operations</span><h3>Admin dashboard</h3><p>Operations, menu management, branches, staff, reporting and marketing screen designs.</p><a href="02-Design-Artifacts/Bayt%20Elkaram%20Admin%20Dashboard.html">Open dashboard →</a></article>
+      <article class="card"><span class="tag">Marketing</span><h3>Website</h3><p>Six desktop page artboards: Home, Locations, Catering & Events, What's On, About Us and Contact.</p><a href="02-Design-Artifacts/Bayt%20Elkaram%20Website.html">Open website →</a></article>
+      <article class="card"><span class="tag">System</span><h3>Design system</h3><p>Typography, palette, controls, decorative language and shared components.</p><a href="02-Design-Artifacts/Bayt%20Elkaram%20Design%20System.html">Open design system →</a></article>
+      <article class="card"><span class="tag">Product structure</span><h3>Sitemap and flows</h3><p>Visual maps of the application structure and the documented customer and operations journeys.</p><a href="02-Design-Artifacts/Bayt%20Elkaram%20Sitemap.html">Open sitemap →</a><a href="02-Design-Artifacts/Bayt%20Elkaram%20User%20Flows.html">Open flows →</a></article>
+      <article class="card"><span class="tag">Supplemental</span><h3>Arabic examples</h3><p>Five sample RTL artboards saved in the Arabic canvas. This does not represent a complete Arabic localization.</p><a href="02-Design-Artifacts/Bayt%20Elkaram%20Mobile%20App%20(Arabic).html">Open Arabic examples →</a></article>
+    </div></div></section>
+    <section id="screens"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Visual review</div><h2>Customer app screens</h2></div><p>Fifty export-ready PNGs. Select any image to view its full size.</p></div><div class="gallery-tools"><label for="filter">Find a screen</label><input id="filter" type="search" placeholder="Search, e.g. Checkout or Branch"></div><div id="gallery" class="gallery"></div></div></section>
+    <section id="documents"><div class="wrap"><div class="section-head"><div><div class="eyebrow">English handover</div><h2>Documents</h2></div><p>A curated English guide to the full work, with the original detailed notes retained separately.</p></div><div class="doclist">
+      <a href="01-English-Documentation/01-Project-Overview.html">01 · Project overview and status ↗</a>
+      <a href="01-English-Documentation/02-Product-Scope-and-Journeys.html">02 · Product scope and 16 journeys ↗</a>
+      <a href="01-English-Documentation/03-Design-System.html">03 · Visual design system ↗</a>
+      <a href="01-English-Documentation/04-Flagship-Screen-Specifications.html">04 · Eighteen flagship screen specs ↗</a>
+      <a href="01-English-Documentation/05-Website-Scope-and-Journeys.html">05 · Website pages and eight journeys ↗</a>
+      <a href="01-English-Documentation/06-Menu-Catalog.html">06 · Complete 52-item menu ↗</a>
+      <a href="01-English-Documentation/07-Image-Asset-Brief.html">07 · All 66 image prompts ↗</a>
+      <a href="01-English-Documentation/08-Artboard-Inventory.html">08 · Full artboard and screenshot inventory ↗</a>
+      <a href="05-Future-Development/Implementation-Plan.html">Future work · Implementation plan ↗</a>
+    </div></div></section>
+    <section id="assets"><div class="wrap"><div class="eyebrow">Source library</div><h2>Visual assets and original notes</h2><div class="grid"><article class="card"><span class="tag">Image library</span><h3>AI-generated imagery</h3><p>Food, branch, campaign and social-wall images, grouped by SKU prefix.</p><a href="03-Visual-Assets/AI-Generated-Imagery/">Open image folder →</a></article><article class="card"><span class="tag">Brand source</span><h3>Logos and fonts</h3><p>Logo PNGs, Illustrator source, Borensa and Offset TM font assets.</p><a href="03-Visual-Assets/Logos-and-Source/">Open logo folder →</a></article><article class="card"><span class="tag">Traceability</span><h3>Original planning</h3><p>Historical detailed planning notes and original design token files retained for reference.</p><a href="04-Original-Planning-Reference/">Open source notes →</a></article></div></div></section>
+  </main>
+  <footer><div class="wrap"><strong>Bayt Elkaram · UI/UX design handover</strong><p>English presentation and original design sources. No production software or live map data is represented as complete.</p></div></footer>
+  <script>
+    const screens = 'AboutUs AddAddress AddressBook BranchLocator BranchSelector Cart CategoryListing Checkout ContactSupport CreateAccount DeliveryTime EditProfile EmptyState ErrorPage FAQ Favorites ForceUpdate ForgotPassword ItemDetail LanguageSelect LiveTracking LocationPermission Login LogoutConfirm Loyalty Main Menu MyReservations NoInternet Notifications OffersHub Onboarding OrderDetails OrderHistory OrderSuccess OrderType OTP PaymentMethod Profile PromoCode RateOrder Reservation ReservationBranch ReservationConfirm Search SearchResults SettingsLang Splash SupportOrder Terms'.split(' ');
+    const gallery=document.querySelector('#gallery');
+    const filter=document.querySelector('#filter');
+    function render(){const term=filter.value.trim().toLowerCase();gallery.innerHTML='';for(const name of screens.filter(n=>n.toLowerCase().includes(term))){const a=document.createElement('a');a.className='shot';a.href=`03-Visual-Assets/Mobile-Screenshots/${name}@1x.png`;a.target='_blank';a.rel='noopener';const img=document.createElement('img');img.src=a.href;img.alt=`${name} customer-app screenshot`;img.loading='lazy';const label=document.createElement('strong');label.textContent=name.replace(/([a-z])([A-Z])/g,'$1 $2');a.append(img,label);gallery.append(a)}}
+    filter.addEventListener('input',render);render();
+  </script>
+</body>
+</html>

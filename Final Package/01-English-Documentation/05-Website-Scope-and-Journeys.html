@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Marketing Website — Scope, Pages and Visitor Journeys</title><style>
+@font-face{font-family:Offset;src:url('../03-Visual-Assets/Fonts/Offset%20TM/OffsetTM.woff2') format('woff2');font-display:swap}
+:root{--red:#ed2023;--ink:#2b2f36;--line:#e7e0d4}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:#faf7f2;font:16px/1.65 Offset,Arial,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px max(24px,calc((100vw - 980px)/2));position:sticky;top:0}header a{text-decoration:none;color:var(--red);font-weight:900}
+main{max-width:980px;margin:45px auto 80px;padding:0 25px}h1{font-size:42px;line-height:1.08;letter-spacing:-.04em}h2{font-size:29px;margin-top:45px;border-top:3px solid var(--red);padding-top:15px}h3{font-size:22px;margin-top:35px}p{margin:14px 0}a{color:#b71a1e}a:focus-visible{outline:3px solid var(--red)}
+.table-scroll{overflow-x:auto;margin:22px 0}table{border-collapse:collapse;background:#fff;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;border:1px solid var(--line);padding:10px 12px;min-width:75px}th{background:var(--ink);color:#fff}tr:nth-child(even){background:#fcfbf8}
+blockquote{margin:20px 0;padding:14px 18px;border-left:5px solid var(--red);background:#fff}code{font:13px/1.5 Consolas,monospace;background:#f2ebe1;padding:2px 5px;border-radius:3px}pre{overflow:auto;background:var(--ink);color:#fff;padding:18px;border-radius:7px}pre code{background:transparent;color:inherit;padding:0}li{margin:5px 0}hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+@media(max-width:700px){main{margin-top:25px}h1{font-size:31px}h2{font-size:24px}}
+</style></head><body><header><a href="../START_HERE.html">← Bayt Elkaram handover</a></header><main><h1 id="marketing-website-scope-pages-and-visitor-journeys">Marketing Website — Scope, Pages and Visitor Journeys</h1>
+<p>The marketing website is a separate six-page design canvas at a 1440 px desktop reference width, with a centred content area up to 1200 px and full-width editorial sections. It is intended to introduce the brand and move visitors toward ordering, reservations, event enquiries or the mobile application. The current handover contains desktop artboards and responsive notes, <strong>not an implemented Next.js website</strong>.</p>
+<p>The source brief explicitly requested the same page count, ordering and much of the section structure of the supplied Roberta's Pizza reference. Bayt Elkaram copy, restaurant concepts and generated image assets replace the original subject matter. This design reference is documented rather than presented as independently invented structure.</p>
+<h2 id="shared-website-elements">Shared website elements</h2>
+<ul>
+<li>Navigation: Home, Locations, Catering &amp; Events, What's On, About Us, Contact.</li>
+<li>A fixed header that starts transparent over a media hero and becomes solid on scroll; text-only pages use a solid header from the beginning.</li>
+<li>Prominent delivery, pickup, reservation and catering actions where relevant.</li>
+<li>Footer newsletter sign-up, press/privacy/credits links, copyright and social links.</li>
+<li>Red star ribbon, checkered dividers, display typography, editorial photography and social Polaroid treatment from the visual system.</li>
+<li>English LTR is the designed version. A complete Arabic website is not part of the six supplied artboards.</li>
+</ul>
+<h2 id="the-six-designed-pages">The six designed pages</h2>
+<div class="table-scroll"><table><thead><tr><th>Page and route</th><th>Main sections in design order</th><th>Essential behavior or state</th></tr></thead><tbody>
+<tr><td><strong>Home</strong> <code>/</code></td><td>Media hero and action cluster; short brand introduction; star divider; catering/delivery feature; branch locations; events and news; shop content; red call-to-action band; app download; social wall; newsletter/footer.</td><td>The header changes appearance after the hero. A static poster image should be shown while hero video loads or if it fails.</td></tr>
+<tr><td><strong>Locations</strong> <code>/locations</code></td><td>Photo hero; five branch entries with address, contact, weekly hours, map link, menu and booking action.</td><td>A temporarily closed branch remains listed and labelled clearly. Links should open the correct phone, directions or booking destination.</td></tr>
+<tr><td><strong>Catering &amp; Events</strong> <code>/catering-and-events</code></td><td>Hero; three service modes; event imagery and copy; full enquiry form.</td><td>Validate required contact, event date and party-size fields inline; show unambiguous success and retry states.</td></tr>
+<tr><td><strong>What's On</strong> <code>/whats-on</code></td><td>Media hero; branch filter; events/offers listing; related merchandise section.</td><td>A branch with no items shows a helpful empty message and route back to all branches. Failure to load content shows retry rather than being confused with an empty result.</td></tr>
+<tr><td><strong>About Us</strong> <code>/about-us</code></td><td>Brand introduction; year-by-year milestone timeline; founder cards; footer.</td><td>Timeline stacks vertically on smaller screens. Milestone dates and founder information are example content pending real brand approval.</td></tr>
+<tr><td><strong>Contact</strong> <code>/contact</code></td><td>Contact introduction and email; single-open FAQ accordion; media/partnership contact section; footer.</td><td>One FAQ answer opens at a time. Other enquiries route to an address or dedicated follow-up form.</td></tr>
+</tbody></table></div>
+<h2 id="visitor-journeys-w1-w8">Visitor journeys W1–W8</h2>
+<div class="table-scroll"><table><thead><tr><th>ID</th><th>Journey</th><th>Target and open dependency</th></tr></thead><tbody>
+<tr><td>W1</td><td>A new visitor lands on Home, learns what the restaurant offers and chooses a next action.</td><td>Ordering, booking, event enquiry, app install or newsletter. The hero needs a fast image fallback.</td></tr>
+<tr><td>W2</td><td>The Delivery action opens a choice between app download and ordering in a browser.</td><td><strong>Browser ordering is described as a possible later design, outside the six finished page artboards.</strong> Do not promise an active browser checkout until separately designed and built.</td></tr>
+<tr><td>W3</td><td>A visitor opens booking from the header or a specific branch.</td><td>Branch/date/time/party size and contact details should use the same reservation availability as the app and admin system. Closed branches offer another option.</td></tr>
+<tr><td>W4</td><td>A visitor reviews event services and sends a catering enquiry.</td><td>Required fields are validated and the visitor sees a success or network-failure message.</td></tr>
+<tr><td>W5</td><td>A visitor reads the brand story and founders, then uses the persistent header actions.</td><td>Historical dates, claims and people need real-world approval before publication.</td></tr>
+<tr><td>W6</td><td>A visitor compares the five branches and opens directions, calls or reserves.</td><td>A maintenance closure appears explicitly. A separate interactive website map was not required in the page design.</td></tr>
+<tr><td>W7</td><td>A visitor filters news/events by branch and may leave for the external merchandise destination.</td><td>Empty results and service errors have distinct treatment. External shop links require an actual destination.</td></tr>
+<tr><td>W8</td><td>A visitor reads FAQ content and contacts the business if the question is unresolved.</td><td>The FAQ accordion is single-expand; email or partnership contact is the escape route.</td></tr>
+</tbody></table></div>
+<h2 id="deliberate-content-adaptations">Deliberate content adaptations</h2>
+<p>The source planning notes document five adaptations where an exact subject equivalent did not make sense for Bayt Elkaram. Examples include replacing a frozen-food order action with pickup, and replacing a sister-brand promotion with a “Get the App” section. The larger page structure remains aligned with the supplied reference. The exact source rationale and page-by-page section tables are preserved in <code>04-Original-Planning-Reference/07-Website-Sitemap.md</code> and <code>09-Website-Wireframes-Spec.md</code>.</p>
+<h2 id="production-content-still-to-confirm">Production content still to confirm</h2>
+<p>Branch addresses and hours; real booking and event policies; brand founding dates and founder identities; store badges and destinations; social/merchandise links; privacy/newsletter copy; and the relationship between website delivery actions and any future web-ordering experience.</p></main></body></html>

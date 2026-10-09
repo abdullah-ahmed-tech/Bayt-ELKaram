@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Product Scope and User Journeys</title><style>
+@font-face{font-family:Offset;src:url('../03-Visual-Assets/Fonts/Offset%20TM/OffsetTM.woff2') format('woff2');font-display:swap}
+:root{--red:#ed2023;--ink:#2b2f36;--line:#e7e0d4}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:#faf7f2;font:16px/1.65 Offset,Arial,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px max(24px,calc((100vw - 980px)/2));position:sticky;top:0}header a{text-decoration:none;color:var(--red);font-weight:900}
+main{max-width:980px;margin:45px auto 80px;padding:0 25px}h1{font-size:42px;line-height:1.08;letter-spacing:-.04em}h2{font-size:29px;margin-top:45px;border-top:3px solid var(--red);padding-top:15px}h3{font-size:22px;margin-top:35px}p{margin:14px 0}a{color:#b71a1e}a:focus-visible{outline:3px solid var(--red)}
+.table-scroll{overflow-x:auto;margin:22px 0}table{border-collapse:collapse;background:#fff;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;border:1px solid var(--line);padding:10px 12px;min-width:75px}th{background:var(--ink);color:#fff}tr:nth-child(even){background:#fcfbf8}
+blockquote{margin:20px 0;padding:14px 18px;border-left:5px solid var(--red);background:#fff}code{font:13px/1.5 Consolas,monospace;background:#f2ebe1;padding:2px 5px;border-radius:3px}pre{overflow:auto;background:var(--ink);color:#fff;padding:18px;border-radius:7px}pre code{background:transparent;color:inherit;padding:0}li{margin:5px 0}hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+@media(max-width:700px){main{margin-top:25px}h1{font-size:31px}h2{font-size:24px}}
+</style></head><body><header><a href="../START_HERE.html">← Bayt Elkaram handover</a></header><main><h1 id="product-scope-and-user-journeys">Product Scope and User Journeys</h1>
+<p>This document is the English navigation map for the original sitemap and 16 flow diagrams. A screen or state in the sitemap is a design/planning item, not proof of an implemented feature. The canvas uses 85 distinct artboards to express 95 planned application/dashboard items; several related settings and states share an explicit pattern.</p>
+<h2 id="customer-application-56-screens-and-states">Customer application — 56 screens and states</h2>
+<div class="table-scroll"><table><thead><tr><th>Area</th><th>Planned screens and states</th></tr></thead><tbody>
+<tr><td>Onboarding and access (9)</td><td>Splash; language choice; three-slide onboarding; location permission; phone login; account creation; OTP confirmation; password recovery; guest entry.</td></tr>
+<tr><td>Home and discovery (7)</td><td>Home; branch selector; all-branches map; search; search results; notification centre; offers and loyalty hub.</td></tr>
+<tr><td>Menu and ordering (13)</td><td>Main menu; category listing; item detail and options; combo builder; cart; delivery/pickup/dine-in choice; address book; add address with map pin; delivery-time choice; promotion code; payment method; checkout review; order confirmation.</td></tr>
+<tr><td>Order follow-up (6)</td><td>Live tracking; previous-order detail; order history; one-tap reorder; rate and review; order-specific support.</td></tr>
+<tr><td>Reservations (5)</td><td>Branch choice; date/time/party size; confirmation; current/past reservations; modify or cancel.</td></tr>
+<tr><td>Account (12)</td><td>Profile; edit details; saved addresses; saved payment methods; loyalty and rewards; favourites; language/notification settings; about; support; FAQ; terms/privacy; sign out/account deletion.</td></tr>
+<tr><td>System states (4)</td><td>Offline; empty states; general loading/server error; required app update.</td></tr>
+</tbody></table></div>
+<h2 id="administration-dashboard-39-screens-and-states">Administration dashboard — 39 screens and states</h2>
+<div class="table-scroll"><table><thead><tr><th>Area</th><th>Planned screens and states</th></tr></thead><tbody>
+<tr><td>Access (3)</td><td>Sign in; two-factor check; password recovery.</td></tr>
+<tr><td>Overview (2)</td><td>Key performance dashboard; branch comparison.</td></tr>
+<tr><td>Live operations (3)</td><td>Order Kanban; order detail/status; reservation calendar/list.</td></tr>
+<tr><td>Menu management (5)</td><td>Categories; items and filters; item editor; modifier groups; combo builder.</td></tr>
+<tr><td>Branch management (3)</td><td>Branch list; branch editor; delivery zones and fees.</td></tr>
+<tr><td>Customer relationship (4)</td><td>Customer list; customer profile; loyalty rules; segmentation.</td></tr>
+<tr><td>Staff and permissions (4)</td><td>Staff list; employee editor; role/permission matrix; audit log.</td></tr>
+<tr><td>Marketing (3)</td><td>Coupons; offers and banners; push campaigns.</td></tr>
+<tr><td>Reviews and support (2)</td><td>Ratings moderation; support tickets.</td></tr>
+<tr><td>Reporting (4)</td><td>Sales; item performance; customer behaviour; delivery performance.</td></tr>
+<tr><td>Settings (6)</td><td>Organization/tax/currency; payment providers; notification templates; app content; language/localization; maps/SMS/payment integrations.</td></tr>
+</tbody></table></div>
+<h2 id="customer-journeys-f1-f10">Customer journeys (F1–F10)</h2>
+<div class="table-scroll"><table><thead><tr><th>ID</th><th>Journey and successful path</th><th>Important alternative or failure path</th></tr></thead><tbody>
+<tr><td>F1</td><td>First use: select language, view onboarding, choose branch, browse as guest, authenticate by phone/OTP at checkout, place first order.</td><td>Denied location uses manual branch choice; expired/incorrect OTP has resend and temporary lockout; closed nearest branch suggests an open alternative.</td></tr>
+<tr><td>F2</td><td>Delivery: choose category and item options, add to cart, select address and time, apply discount if eligible, choose payment, confirm, follow status, receive completion notification and rate.</td><td>Sold-out items disable purchase; failed card payment preserves cart; out-of-zone address offers another branch or pickup.</td></tr>
+<tr><td>F3</td><td>Pickup: select pickup branch/time, pay, receive a reference number, collect at the branch.</td><td>Early arrival shows remaining preparation time.</td></tr>
+<tr><td>F4</td><td>Dine-in reservation: choose branch/date/time/party size, confirm and receive reminder.</td><td>Full slot suggests another time or branch; late cancellation warning depends on an approved policy.</td></tr>
+<tr><td>F5</td><td>Reorder: open a previous order and add available items to the cart.</td><td>If items are unavailable, show an item-by-item availability review.</td></tr>
+<tr><td>F6</td><td>Promotion or rewards: enter a code or redeem points during checkout.</td><td>State the exact rejection reason, such as minimum order value.</td></tr>
+<tr><td>F7</td><td>Manage addresses: set location via map/GPS, add label and building details, save and assign a default.</td><td>Editing/deleting is supported; deleting the default requires choosing a replacement.</td></tr>
+<tr><td>F8</td><td>Cancel an order through order detail while policy permits.</td><td>New orders may cancel immediately; preparation may require branch approval and fees; dispatched/delivered orders route to support.</td></tr>
+<tr><td>F9</td><td>Raise an order-specific support ticket with issue type and optional image.</td><td>Some cases can receive automated compensation under a defined policy; others go to human support.</td></tr>
+<tr><td>F10</td><td>Guest versus member: browse without account and sign in only when committing to checkout.</td><td>Returning member signs in and resumes the same cart.</td></tr>
+</tbody></table></div>
+<h2 id="administration-journeys-f11-f16">Administration journeys (F11–F16)</h2>
+<div class="table-scroll"><table><thead><tr><th>ID</th><th>Journey and successful path</th><th>Key operational rule</th></tr></thead><tbody>
+<tr><td>F11</td><td>Branch manager reviews dashboard and live-order Kanban, moves orders through preparation and completion, then reviews daily sales.</td><td>Overdue orders are highlighted; each status change is controlled by role and branch.</td></tr>
+<tr><td>F12</td><td>Editor creates a bilingual item, image, category, price, modifiers and branch availability; saves draft, then publishes.</td><td>Drafts stay hidden from customers; published changes appear in the relevant branches.</td></tr>
+<tr><td>F13</td><td>General manager compares branch sales, orders and ratings, then drills into a weak branch and exports a report.</td><td>Branch filters and date ranges must match underlying transactions.</td></tr>
+<tr><td>F14</td><td>Support agent reviews a complaint and linked order, decides on full/partial refund, coupon or explanation, then closes the ticket.</td><td>Financial actions need permission and an audit trail.</td></tr>
+<tr><td>F15</td><td>Marketer creates a coupon, selects eligible branches and customers, schedules a push campaign, and later reviews uptake.</td><td>Preview and audience checks prevent accidental or duplicate sends.</td></tr>
+<tr><td>F16</td><td>Administrator invites a staff member and assigns role plus one or more branches.</td><td>A super administrator can access all branches; branch roles remain scoped.</td></tr>
+</tbody></table></div>
+<h2 id="cross-product-dependencies">Cross-product dependencies</h2>
+<ol>
+<li>Branch, menu, price and availability are shared data. Customer screens must reflect the administration source of truth.</li>
+<li>Orders, payments and refunds need one authoritative state machine. A visual status change in the dashboard must correspond to a real backend event and customer update.</li>
+<li>Maps show branches, address selection, delivery zones and potentially a rider route. The design preview does not include verified coordinates or an actual rider position feed.</li>
+<li>Reservations appear in the customer application, administration dashboard and website flow; all three must use one availability model when developed.</li>
+<li>The English UI is the base direction. The Arabic examples show RTL intent, but the full product needs localization work and review before an Arabic release claim.</li>
+</ol>
+<p>For the original branching diagrams, see <code>04-Original-Planning-Reference/02-User-Flows.md</code> and the English visual artifact <code>02-Design-Artifacts/Bayt Elkaram User Flows.html</code>.</p></main></body></html>

@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Visual Design System</title><style>
+@font-face{font-family:Offset;src:url('../03-Visual-Assets/Fonts/Offset%20TM/OffsetTM.woff2') format('woff2');font-display:swap}
+:root{--red:#ed2023;--ink:#2b2f36;--line:#e7e0d4}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:#faf7f2;font:16px/1.65 Offset,Arial,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px max(24px,calc((100vw - 980px)/2));position:sticky;top:0}header a{text-decoration:none;color:var(--red);font-weight:900}
+main{max-width:980px;margin:45px auto 80px;padding:0 25px}h1{font-size:42px;line-height:1.08;letter-spacing:-.04em}h2{font-size:29px;margin-top:45px;border-top:3px solid var(--red);padding-top:15px}h3{font-size:22px;margin-top:35px}p{margin:14px 0}a{color:#b71a1e}a:focus-visible{outline:3px solid var(--red)}
+.table-scroll{overflow-x:auto;margin:22px 0}table{border-collapse:collapse;background:#fff;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;border:1px solid var(--line);padding:10px 12px;min-width:75px}th{background:var(--ink);color:#fff}tr:nth-child(even){background:#fcfbf8}
+blockquote{margin:20px 0;padding:14px 18px;border-left:5px solid var(--red);background:#fff}code{font:13px/1.5 Consolas,monospace;background:#f2ebe1;padding:2px 5px;border-radius:3px}pre{overflow:auto;background:var(--ink);color:#fff;padding:18px;border-radius:7px}pre code{background:transparent;color:inherit;padding:0}li{margin:5px 0}hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+@media(max-width:700px){main{margin-top:25px}h1{font-size:31px}h2{font-size:24px}}
+</style></head><body><header><a href="../START_HERE.html">← Bayt Elkaram handover</a></header><main><h1 id="visual-design-system">Visual Design System</h1>
+<h2 id="design-intent-and-provenance">Design intent and provenance</h2>
+<p>English, left-to-right screens are the primary design direction; Arabic is a secondary right-to-left mode. The supplied Roberta's Pizza design reference was adopted very closely for colour, typography, structural decoration and the six-page marketing-site framework. The Bayt Elkaram product introduces original ordering and administration patterns within those visual rules. This relationship should be disclosed when presenting the work.</p>
+<p>The editable design-system canvas is <code>02-Design-Artifacts/Bayt Elkaram Design System.html</code>; CSS variables and token files are retained in <code>04-Original-Planning-Reference</code>.</p>
+<h2 id="core-tokens">Core tokens</h2>
+<div class="table-scroll"><table><thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead><tbody>
+<tr><td>Primary red</td><td><code>#ED2023</code></td><td>Main action, urgent emphasis, brand ribbons and active state.</td></tr>
+<tr><td>Charcoal</td><td><code>#2B2F36</code></td><td>Primary text, outlines and secondary controls.</td></tr>
+<tr><td>White</td><td><code>#FFFFFF</code></td><td>Surfaces and text on dark areas.</td></tr>
+<tr><td>Black</td><td><code>#000000</code></td><td>High-contrast form boundaries.</td></tr>
+<tr><td>Shadow grey</td><td><code>#BFBFBF</code></td><td>Disabled controls, low-priority separators.</td></tr>
+<tr><td>Body font</td><td>Offset TM</td><td>Navigation, labels, forms and most headings.</td></tr>
+<tr><td>Display font</td><td>Borensa</td><td>Large editorial and campaign headings.</td></tr>
+<tr><td>Spacing unit</td><td>4 px</td><td>Core rhythm; common sizes are 12, 16, 20, 24, 28, 32, 40, 44, 48, 64, 68, 96, 128 and 196 px.</td></tr>
+<tr><td>Button radius</td><td>7.2 px</td><td>Standard action buttons.</td></tr>
+<tr><td>Pill radius</td><td>9999 px</td><td>Chips and capsules.</td></tr>
+<tr><td>Interactive shadow</td><td><code>rgba(0,0,0,.25) 0 4px 4px</code></td><td>Hover or active feedback, not permanent elevation.</td></tr>
+<tr><td>Content width</td><td>1200 px maximum</td><td>Centred desktop content; hero/ribbon sections may run full width.</td></tr>
+</tbody></table></div>
+<p>Typography scale: caption 14 px, small body 16 px, body 20 px, subheading 24 px, small heading 34 px, heading 54 px, large heading 80 px and display 120 px. English Offset TM text uses approximately <code>+0.04em</code> tracking; oversized Borensa display text uses approximately <code>-0.02em</code>.</p>
+<h2 id="structural-elements">Structural elements</h2>
+<ul>
+<li><strong>Red star band:</strong> a full-width 80–120 px red divider with repeated white eight-point stars.</li>
+<li><strong>Checkered ribbon:</strong> a 30–40 px charcoal/white border used to frame or divide sections.</li>
+<li><strong>Hand-drawn iconography:</strong> white outlines, roughly 3–4 px stroke, placed on red or dark backgrounds. Restaurant-related subjects include a grill flame or skewer.</li>
+<li><strong>Social wall:</strong> full-width red area, oversized display heading and slightly rotated white-frame image cards with a firm shadow.</li>
+<li><strong>Hero media:</strong> full-bleed food/restaurant video or image, charcoal overlay and prominent actions.</li>
+<li><strong>Controls:</strong> filled, outline and ghost calls to action, navigation, text input, hamburger menu and form states follow the same red/charcoal language.</li>
+</ul>
+<p>The ordering application adds menu-item cards, category chips, quantity steppers, modifier groups, coupon fields, cart lines, order progress, branch cards, bottom sheets, five-tab navigation and feedback toasts. The administration dashboard adds data tables, Kanban cards, metric tiles, state badges and a left sidebar. These are needed for the product even though they are absent from the marketing-site reference.</p>
+<h2 id="direction-and-localization">Direction and localization</h2>
+<ul>
+<li>English defaults to LTR. The dashboard sidebar is on the left, the back arrow points left and the Home tab begins the bottom navigation on the left.</li>
+<li>Switching to Arabic should mirror layout and directional icons, while leaving SKU identifiers and Western digits legible. The original system names Lalezar for Arabic display and Cairo for Arabic body UI; those fonts are <strong>not included among the supplied font binaries</strong> and would need acquisition and verification before a full Arabic implementation.</li>
+<li>Five Arabic artboards are illustrative examples. A full Arabic product requires translation, responsive checks and state-by-state QA beyond those five screens.</li>
+</ul>
+<h2 id="experience-principles">Experience principles</h2>
+<ol>
+<li>Show branch, availability, fees and final price before the customer commits.</li>
+<li>Let a guest browse the entire catalogue; ask for sign-in at checkout.</li>
+<li>Keep the active branch visible throughout the shopping flow.</li>
+<li>Use red for the single most important action in a view; preserve strong typographic hierarchy.</li>
+<li>Give loading skeletons, clear retry states and useful empty states instead of blank surfaces or raw server messages.</li>
+</ol>
+<h2 id="review-checklist">Review checklist</h2>
+<ul>
+<li>Consistent typography, spacing and button states across mobile, admin and website.</li>
+<li>Contrast and legibility on photo overlays, especially hero actions and banners.</li>
+<li>Every icon has a clear meaning and interactive controls have hover/focus/disabled states.</li>
+<li>All map artboards identify their imagery as illustrative; actual Google Maps integration is a future implementation task.</li>
+<li>The 50 mobile PNGs match the artboards visually; use the HTML exports for editable source.</li>
+</ul></main></body></html>
